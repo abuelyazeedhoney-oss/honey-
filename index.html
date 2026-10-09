@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#c8860d"><link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="icon-192.png"><link rel="icon" href="icon-192.png">
+<title>منحل حسن أبو اليزيد</title>
+<style>
+:root{--bg:#fff8ea;--cd:#fff;--tx:#3b2a14;--mu:#8a7556;--gd:#c8860d;--gd2:#f2b632;--bd:#f0e0bd}
+@media(prefers-color-scheme:dark){:root{--bg:#1d160c;--cd:#2a2012;--tx:#f6e9cf;--mu:#b8a27c;--bd:#40321c}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--tx);font-family:Tahoma,Arial,sans-serif;max-width:720px;margin-inline:auto;padding:env(safe-area-inset-top) 0 90px}
+header{background:linear-gradient(135deg,var(--gd),var(--gd2));color:#fff;padding:24px 18px 30px;border-radius:0 0 28px 28px;text-align:center;position:relative}
+header h1{margin:8px 0 4px;font-size:24px}header p{margin:0;font-size:14px}
+.lg{width:110px;height:110px;border-radius:22px;border:3px solid #fff;background:#fff;object-fit:cover}
+#lang{position:absolute;top:12px;inset-inline-start:12px;background:#fff3;border:1px solid #fff8;color:#fff;border-radius:20px;padding:6px 14px;font-size:13px}
+nav{display:flex;gap:8px;overflow-x:auto;padding:16px 14px 6px}
+nav button{flex:none;border:1px solid var(--bd);background:var(--cd);color:var(--tx);padding:8px 16px;border-radius:20px;font-size:14px}
+nav .on{background:var(--gd);color:#fff;border-color:var(--gd)}
+h2{font-size:17px;margin:18px 16px 4px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:10px 14px}
+.card{background:var(--cd);border:1px solid var(--bd);border-radius:18px;overflow:hidden}
+.ph{aspect-ratio:1;display:flex;align-items:center;justify-content:center;font-size:54px;background:linear-gradient(160deg,#ffe9a8,#f0b43c);cursor:pointer}.ph img{width:100%;height:100%;object-fit:cover}
+.i{padding:10px 12px 12px}.i b{display:block;font-size:14px}.i span{color:var(--mu);font-size:12px}.pr{color:var(--gd);font-weight:bold;margin-top:4px}
+.add{width:100%;border:0;background:var(--gd);color:#fff;border-radius:12px;padding:9px;font-size:14px;margin-top:8px}.add:disabled,.btn:disabled{opacity:.5}
+#bar{position:fixed;bottom:calc(10px + env(safe-area-inset-bottom));left:12px;right:12px;max-width:696px;margin:auto;background:#25a244;color:#fff;border:0;border-radius:16px;padding:14px;font-size:16px;font-weight:bold;display:none;justify-content:space-between;z-index:4}
+#md{position:fixed;inset:0;background:#0008;display:none;align-items:flex-end;justify-content:center;z-index:5}#md.on{display:flex}
+#sh{background:var(--cd);width:100%;max-width:720px;border-radius:26px 26px 0 0;padding-bottom:calc(20px + env(safe-area-inset-bottom));max-height:92%;overflow:auto}
+#sh .ph{aspect-ratio:16/10;font-size:90px;border-radius:26px 26px 0 0}
+.t{padding:16px 18px}.t h3{margin:0 0 6px}.t p{color:var(--mu);line-height:1.7;font-size:14px}
+.btn{display:block;margin:8px 18px 0;text-align:center;padding:13px;border-radius:14px;background:var(--gd);color:#fff;text-decoration:none;font-weight:bold;border:0;font-size:15px;width:calc(100% - 36px)}.btn.w{background:#25a244}.btn.g{background:var(--bd);color:var(--tx)}
+.ct{margin:10px 14px;background:var(--cd);border:1px solid var(--bd);border-radius:20px;padding:6px 16px 16px}.ct p{margin:8px 0;font-size:14px;line-height:1.6}.ct .btn{margin:8px 0 0;width:100%}
+.rw{display:flex;align-items:center;gap:8px;padding:8px 0;border-bottom:1px dashed var(--bd);font-size:14px}.rw b{flex:1}.rw small{color:var(--mu);font-weight:normal}
+.q button{width:28px;height:28px;border-radius:50%;border:1px solid var(--bd);background:var(--cd);color:var(--tx);font-size:16px}
+input,select{width:100%;padding:11px;margin:5px 0;border:1px solid var(--bd);border-radius:12px;background:var(--bg);color:var(--tx);font-size:15px}
+</style></head><body>
+<header><button id="lang"></button><img class="lg" src="logo.jpg" alt=""><h1 id="shop"></h1><p id="tag"></p></header>
+<nav id="nav"></nav><h2 id="hp"></h2><div class="grid" id="grid"></div>
+<h2 id="hs"></h2><div class="ct" id="sb"></div><h2 id="hc"></h2><div class="ct" id="cb"></div>
+<button id="bar"></button><div id="md"><div id="sh"></div></div>
+<script>
+var D,L="ar",cat="all",C={},U;
+function $(i){return document.getElementById(i)}
+function ld(k,d){try{return JSON.parse(localStorage.getItem(k))||d}catch(e){return d}}
+function sv(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}
+function E(s){return String(s).replace(/"/g,"&quot;").replace(/</g,"&lt;")}
+L=ld("l","ar");C=ld("c",{});U=ld("u",{cn:"",cp:"",ca:"",cs:"0"});
+var T={ar:{hp:"المنتجات",hs:"🚚 الشحن",hc:"تواصل معنا",call:"📞 اتصل الآن",wa:"💬 واتساب",map:"📍 الموقع على الخريطة",add:"+ أضف للسلة",out:"غير متوفر",cart:"السلة",empty:"السلة فاضية",shipL:"الشحن",sub:"المجموع",tot:"الإجمالي",other:"محافظة أخرى (البريد المصري - الشحن غير مضاف)",nm:"الاسم",ph:"رقم التليفون",ad:"العنوان بالتفصيل",send:"إرسال الطلب عبر واتساب",req:"من فضلك اكتب الاسم والتليفون والعنوان",cl:"إغلاق",sw:"English"},
+en:{hp:"Products",hs:"🚚 Shipping",hc:"Contact us",call:"📞 Call now",wa:"💬 WhatsApp",map:"📍 Open in Maps",add:"+ Add to cart",out:"Out of stock",cart:"Cart",empty:"Your cart is empty",shipL:"Shipping",sub:"Subtotal",tot:"Total",other:"Other governorate (Egypt Post - shipping not included)",nm:"Name",ph:"Phone number",ad:"Full address",send:"Send order via WhatsApp",req:"Please enter name, phone and address",cl:"Close",sw:"العربية"}};
+function it(id){return D.items.find(x=>x.id==id)}
+function nm(x){return x[L]||x.ar}
+function vis(x){return x.img?'<img src="'+x.img+'" alt="">':x.e}
+function cnt(){var n=0,s=0;for(var k in C){var x=it(k);if(x){n+=C[k];s+=C[k]*x.p}else delete C[k]}return[n,s]}
+function shp(){var s=D.ship[U.cs];return s?s[2]:0}
+function bar(){var c=cnt(),b=$("bar");b.style.display=c[0]?"flex":"none";b.innerHTML="<span>🛒 "+T[L].cart+" ("+c[0]+")</span><span>"+c[1]+" "+D.shop.cur[L]+"</span>";sv("c",C)}
+function R(){var t=T[L],s=D.shop;document.documentElement.lang=L;document.documentElement.dir=L=="ar"?"rtl":"ltr";
+$("lang").textContent=t.sw;$("shop").textContent=s.name[L];$("tag").textContent=s.tag[L];document.title=s.name[L];
+$("hp").textContent=t.hp;$("hs").textContent=t.hs;$("hc").textContent=t.hc;
+$("nav").innerHTML=D.cats.map(c=>'<button class="'+(c.id==cat?"on":"")+'" data-c="'+c.id+'">'+c[L]+"</button>").join("");
+$("grid").innerHTML=D.items.filter(x=>cat=="all"||x.c==cat).map(x=>'<div class="card"><div class="ph" data-i="'+x.id+'">'+vis(x)+'</div><div class="i"><b>'+nm(x)+"</b><span>"+x.w+'</span><div class="pr">'+x.p+" "+s.cur[L]+'</div><button class="add" data-a="'+x.id+'"'+(x.out?" disabled":"")+">"+(x.out?t.out:t.add)+"</button></div></div>").join("");
+$("sb").innerHTML=D.ship.map(r=>'<div class="rw"><b>'+r[L=="ar"?0:1]+"</b><b style='flex:none'>"+r[2]+" "+s.cur[L]+"</b></div>").join("")+"<p>🇪🇬 "+s.shipNote[L]+"</p>";
+$("cb").innerHTML="<p>📍 "+s.addr[L]+"</p>"+s.phones.map(p=>'<p dir="ltr">☎ '+p+"</p>").join("")+'<a class="btn" href="tel:'+s.phones[0]+'">'+t.call+'</a><a class="btn w" href="https://wa.me/'+s.wa+'" target="_blank" rel="noopener">'+t.wa+'</a><a class="btn g" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(s.addr.ar)+'">'+t.map+"</a>";
+bar()}
+function det(id){var x=it(id),t=T[L];$("sh").innerHTML='<div class="ph">'+vis(x)+'</div><div class="t"><h3>'+nm(x)+" — "+x.w+'</h3><div class="pr">'+x.p+" "+D.shop.cur[L]+"</div><p>"+((L=="ar"?x.da:x.de)||x.da||"")+'</p></div><button class="btn" data-a="'+id+'"'+(x.out?" disabled":"")+">"+(x.out?t.out:t.add)+'</button><button class="btn g" id="x">'+t.cl+"</button>";$("md").classList.add("on")}
+function cartUI(){var t=T[L],c=cnt(),cu=D.shop.cur[L],h='<div class="t"><h3>🛒 '+t.cart+"</h3>";
+if(!c[0])h+="<p>"+t.empty+"</p>";else{
+for(var k in C){var x=it(k);h+='<div class="rw"><b>'+nm(x)+"<br><small>"+x.p+" × "+C[k]+'</small></b><span class="q"><button data-m="'+k+'">−</button> '+C[k]+' <button data-p="'+k+'">+</button></span><b style="flex:none">'+x.p*C[k]+"</b></div>"}
+h+='<select id="cs">'+D.ship.map((s,i)=>'<option value="'+i+'"'+(U.cs==i?" selected":"")+">"+t.shipL+": "+s[L=="ar"?0:1]+" ("+s[2]+")</option>").join("")+'<option value="o"'+(U.cs=="o"?" selected":"")+">"+t.other+"</option></select>";
+h+='<input id="cn" placeholder="'+t.nm+'" value="'+E(U.cn)+'"><input id="cp" type="tel" placeholder="'+t.ph+'" value="'+E(U.cp)+'"><input id="ca" placeholder="'+t.ad+'" value="'+E(U.ca)+'">';
+h+='<div class="rw"><b>'+t.sub+"</b><b>"+c[1]+" "+cu+'</b></div><div class="rw"><b>'+t.shipL+"</b><b>"+shp()+" "+cu+'</b></div><div class="rw" style="font-size:17px"><b>'+t.tot+"</b><b>"+(c[1]+shp())+" "+cu+"</b></div>"}
+h+="</div>";if(c[0])h+='<button class="btn w" id="snd">'+t.send+"</button>";
+$("sh").innerHTML=h+'<button class="btn g" id="x">'+t.cl+"</button>";$("md").classList.add("on")}
+function send(){if(!U.cn.trim()||!U.cp.trim()||!U.ca.trim()){alert(T[L].req);return}
+var c=cnt(),s=D.shop,cu=s.cur.ar,n=1,sp=D.ship[U.cs],m="🧾 *فاتورة طلب — "+s.name.ar+"*\nرقم الطلب: #"+Date.now().toString(36).slice(-5).toUpperCase()+"\nالتاريخ: "+new Date().toLocaleDateString("ar-EG")+"\n\n👤 "+U.cn+"\n📞 "+U.cp+"\n📍 "+U.ca+"\n\n*الأصناف:*\n";
+for(var k in C){var x=it(k);m+=(n++)+") "+x.ar+" ("+x.w+") × "+C[k]+" = "+x.p*C[k]+" "+cu+"\n"}
+m+="\nالمجموع: "+c[1]+" "+cu+"\nالشحن"+(sp?" ("+sp[0]+"): "+sp[2]+" "+cu:": حسب شركة الشحن (غير مضاف)")+"\n*الإجمالي: "+(c[1]+shp())+" "+cu+"*";
+window.open("https://wa.me/"+s.wa+"?text="+encodeURIComponent(m),"_blank")}
+document.addEventListener("click",e=>{var g=e.target,d;
+if(g.id=="lang"){L=L=="ar"?"en":"ar";sv("l",L);R();return}
+if(d=g.closest("[data-c]")){cat=d.dataset.c;R();return}
+if(d=g.closest("[data-a]")){var a=d.dataset.a;C[a]=(C[a]||0)+1;bar();if(g.closest("#sh"))$("md").classList.remove("on");else{d.textContent="✓";setTimeout(R,600)}return}
+if(d=g.closest("[data-i]")){det(d.dataset.i);return}
+if(d=g.closest("[data-m]")){var m=d.dataset.m;if(--C[m]<=0)delete C[m];bar();cartUI();return}
+if(d=g.closest("[data-p]")){C[d.dataset.p]++;bar();cartUI();return}
+if(g.closest("#bar")){cartUI();return}
+if(g.id=="snd"){send();return}
+if(g.id=="x"||g.id=="md")$("md").classList.remove("on")});
+document.addEventListener("input",e=>{var t=e.target;if(t.id in U){U[t.id]=t.value;sv("u",U)}});
+document.addEventListener("change",e=>{if(e.target.id=="cs"){U.cs=e.target.value;sv("u",U);cartUI()}});
+function go(d){D=d;R()}
+window.setData=function(d){sv("d",d);go(d)};
+var c0=ld("d",null);if(c0)go(c0);else fetch("data.json").then(r=>r.json()).then(d=>{if(!D)go(d)}).catch(()=>{});
+if("serviceWorker" in navigator)navigator.serviceWorker.register("sw.js");
+</script><script type="module" src="live.js"></script></body></html>
